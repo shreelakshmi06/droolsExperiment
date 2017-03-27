@@ -1,0 +1,43 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.0.BUILD-SNAPSHOT'
+	}
+	repositories {
+		mavenCentral()
+		maven { url "https://repo.spring.io/snapshot" }
+		maven { url "https://repo.spring.io/milestone" }
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+ext
+{
+	droolsVersion = '6.2.0.Final'
+}
+
+repositories {
+	mavenCentral()
+	maven { url "https://repo.spring.io/snapshot" }
+	maven { url "https://repo.spring.io/milestone" }
+	maven { url  "https://repository.jboss.org/nexus/content/groups/public/"}
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compileOnly('org.projectlombok:lombok')
+	compile("org.kie:kie-api:$droolsVersion")
+	compile("org.drools:drools-core:$droolsVersion")
+	compile("org.drools:drools-compiler:$droolsVersion")
+	compile("org.drools:drools-decisiontables:$droolsVersion")
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
