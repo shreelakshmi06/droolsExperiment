@@ -18,6 +18,13 @@ public class EmployeeDesignation {
     }
 
     public void setDesignation(String designation) {
+        System.out.println("designation "+ designation);
         this.designation = designation;
+    }
+
+
+    @Override
+    public String toString() {
+        return "name: "+name+ " and designation: "+designation;
     }
 }
