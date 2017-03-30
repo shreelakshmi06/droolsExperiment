@@ -3,7 +3,11 @@ package com.shre.drools.dto;
 public class EmployeeDesignation {
 
     String name="defaultName";
+
     String designation="defaultDesignation";
+
+    public EmployeeDesignation() {
+    }
 
     public String getName() {
         return name;

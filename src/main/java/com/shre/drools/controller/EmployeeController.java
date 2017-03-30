@@ -27,12 +27,6 @@ public class EmployeeController {
             @RequestParam(required = true) int age) {
 
         EmployeeDesignation eDesignation = new EmployeeDesignation();
-        System.out.println("controller called: "+eDesignation.toString());
-
-//        Person person = new Person(name, age);
-//        log.debug("Bus pass request received for: " + person);
-//        BusPass busPass = busPassService.getBusPass(person);
-
         Employeefact empFact = new Employeefact(name,age);
         eDesignation=employeeService.getDesignation(empFact);
 

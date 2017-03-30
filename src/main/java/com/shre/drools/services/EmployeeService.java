@@ -18,14 +18,14 @@ public class EmployeeService {
         KieSession kieSession = kieContainer.newKieSession("employeeDesignationSession");
         kieSession.addEventListener( new DebugRuleRuntimeEventListener() );
         kieSession.insert(empFact);
-        kieSession.fireAllRules();
         EmployeeDesignation eDesignation = new EmployeeDesignation();
-       // EmployeeDesignation eDesignation = findEmployeeDesignation(kieSession);
+        kieSession.setGlobal("eDesignation", eDesignation);
+        kieSession.fireAllRules();
+
         System.out.println(eDesignation);
         System.out.println(empFact);
         kieSession.dispose();
         return eDesignation;
-        //code for applying rule sheet
 
     }
 
